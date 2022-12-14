@@ -105,7 +105,7 @@
                     <p>Dashboard</p>
                 </a>
             </li>
-          <li class="nav-item">
+          <li class="nav-item menu-open">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -125,7 +125,7 @@
             </ul>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item menu-open">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
