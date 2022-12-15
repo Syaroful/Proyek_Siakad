@@ -20,7 +20,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-            <h5 class="card-title">DATA </h5>
+            <h5 class="card-title">DATA GURU</h5>
             <div class="card-tools">
               <a href="" value="new" class="EditBtn btn-sm btn-primary" data-toggle="modal" data-target="#EditModal" data-placement="top" title="Tambah Data">
                 <i class="fa fa-plus-circle"></i> Create Data
