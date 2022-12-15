@@ -39,10 +39,9 @@
     <form action="{{ route('login') }}" method="post">
             @csrf
         <input type="text" class="username" name="nidn" placeholder="Username">
-        <input type="password" class="password" name="password" placeholder="Password">
-        
-        <button type="submit" class="btn">Masuk</button>
+        <input type="text" class="password" name="password" placeholder="Password">
         </form>
+        <button class="btn">Masuk</button>
         <p class="nb">nb : masukan password dengan tanggal lahir anda</p>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
