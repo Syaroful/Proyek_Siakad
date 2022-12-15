@@ -41,11 +41,6 @@
                         <div class="col-sm-1"><p> : </p></div>
                         <div class="col"><p>{{ $item->TTL }}</p></div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-1"><p>NAMA</p></div>
-                        <div class="col-sm-1"><p> : </p></div>
-                        <div class="col"><p>{{ $item->NAMA }}</p></div>
-                    </div>
                 </div>
             @endforeach
 

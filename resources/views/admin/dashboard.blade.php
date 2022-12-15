@@ -41,11 +41,6 @@
                         <div class="col-sm-1"><p> : </p></div>
                         <div class="col"><p>{{ $item->TTL }}</p></div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-1"><p>NAMA</p></div>
-                        <div class="col-sm-1"><p> : </p></div>
-                        <div class="col"><p>{{ $item->NAMA }}</p></div>
-                    </div>
                 </div>
             @endforeach
             <div class="info-box-content">
@@ -109,30 +104,6 @@
                     <p>Total Kelas {{ \App\Models\Daftar_Kelas::count()  }}</p>
                 </div>
                 <a href="{{ route('/data_kelas')}}" class="small-box-footer" >Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6 col-xs-12">
-            <!-- small box -->
-            <div class="small-box bg-gray">
-                <div class="inner">
-                    <h3><i class="fas fa-landmark"></i> {{ \App\Models\Daftar_Kelas::count()  }}<sup style="font-size: 20px"></sup></h3>
-
-                    <p>Total Kelas</p>
-                </div>
-                <a href="" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <div class="col-lg-6 col-xs-12">
-            <!-- small box -->
-            <div class="small-box bg-gray">
-                <div class="inner">
-                    <h3><i class="fas fa-landmark"></i> {{ \App\Models\Daftar_Kelas::count()  }}<sup style="font-size: 20px"></sup></h3>
-
-                    <p>Total Kelas</p>
-                </div>
-                <a href="" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>
