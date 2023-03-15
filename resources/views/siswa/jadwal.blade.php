@@ -1,4 +1,4 @@
-@extends('guru.nav')
+@extends('siswa.nav')
 
 @section('link_rel')
     <link rel="stylesheet" href="css/homeHtyle.css">
@@ -16,77 +16,28 @@
 
 @endsection
 @section('content')
-<div class="row">
-    @foreach ($daftar_tugas as $df)
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-teal">
-            <div class="inner">
-                <h3>TUGAS<sup style="font-size: 20px"></sup></h3>
-
-                <p>{{$df->NAMA}}</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="/data_tugas/{{$df->ID_TUGAS}}" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    @endforeach
-
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-            <h5 class="card-title">DATA NILAI TUGAS</h5>
-            <div class="card-tools">
-              <a href="" value="new" class="EditBtn btn-sm btn-primary" data-toggle="modal" data-target="#CreateModal" data-placement="top" title="Tambah Data">
-                <i class="fa fa-plus-circle"></i> Create Data
-              </a>
-              <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-            </div>
-          </div>
-
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-12">
-              <!-- Chart Canvas Top Player -->
-              <div class="card">
-                <div class="card-body p-0">
-                  <!-- <table id="example3" class="table table-bordered table-striped"> -->
-                  <table id="findTable2" class="table table-sm">
-                    <thead>
-                      <tr>
-                        <th style="width: 10px">NO</th>
-                        <th >NAMA</th>
-                        <th>NILAI</th>
-                        <th width="130px" class="text-center">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php $i = 0 ?>
-                      @foreach ($data as $fld)
-                      <tr>
-                        <td class="text-center" width="3%">{{ ++$i }}</td>
-                        <td>{{ $fld->NAMA }} </td>
-                        <td>{{ $fld->NILAI }} </td>
-                        <td class="text-center">
-                            <a href="" value="{{ $fld->ID }}" class="EditBtn btn-primary btn-xs" data-toggle="modal" data-target="#EditModal" data-placement="top" title="Koreksi Data">
-                            <i class="fa fa-edit"></i> Edit</a>
-
-                          </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">JADWAL</h5>
                 </div>
-              </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="content d-flex align-items-stretch bg-info w-100">
+                            <div class="d-flex bg-info w-100">
+                                <div class="d-flex align-items-center w-100">
+                                    <img class="w-100" src="image/{{$jadwal}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
 <!-- Modal Deskripsi -->
 <div class="modal fade" id="infoDetail">
@@ -134,46 +85,10 @@
 
           <div class="modal-body">
             <div class="form-group row">
-              <label for="inputText" class="col-sm-2 col-form-label">NILAI</label>
+              <label for="inputText" class="col-sm-2 col-form-label">Category Name</label>
               <div class="col-sm-10">
                 <div class="input-group input-group-sm">
-                  <input type="text" name="nilai" id="eNILAI"  class="form-control" placeholder="NILAI" required>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-reply"></i> Cancel</button>
-            <button type="submit" class="btn btn-danger"><i class="fa fa-save"></i> Save</button>
-          </div>
-        </form>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Create -->
-  <div class="modal fade" id="CreateModal" data-backdrop="static">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-primary">
-          <h6 class="modal-title" id="tJudul">Data</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <form class="form-horizontal" id="CreateForm">
-          @csrf
-          @method('PUT')
-
-          <div class="modal-body">
-            <div class="form-group row">
-              <label for="inputText" class="col-sm-2 col-form-label">NAMA</label>
-              <div class="col-sm-10">
-                <div class="input-group input-group-sm">
-                  <input type="text" name="NAMA" id="eNAMA"  class="form-control" placeholder="NAMA TUGAS" required>
+                  <input type="text" name="name_categories" id="ename_categories"  class="form-control" placeholder="Categories" required>
                 </div>
               </div>
             </div>
@@ -257,20 +172,19 @@
       $cID = $(this).attr("value");
       if ($cID == "new") {
         $("#tJudul").text("Add Data Categories");
-        $("#eNAMA").val("");
+        $("#ename_categories").val("");
         }
       else {
         $("#tJudul").text("Edit Data Categories");
-        $.get("Det_Tug/"+$(this).attr("value"))
+        $.get("Det_Cat/"+$(this).attr("value"))
           .done(function(data){
-            $("#eNILAI").val(data[0].NILAI);
+            $("#ename_categories").val(data[0].name_categories);
             $cID = data[0].ID;
           });
         }
 
       $i = 0;
-      if ($cID == "new") {
-        $('#CreateForm').on('submit',function(e){
+      $('#EditForm').on('submit',function(e){
         e.preventDefault();
         if ( $i == 0 ) {
           $i = 1;
@@ -278,33 +192,7 @@
 
           $.ajax({
             type : "PUT",
-            url : "Upd_Tug/"+id,
-            data : $('#CreateForm').serialize(),
-            success : function (response) {
-              console.log(response);
-              $('#CreateModal').modal('hide');
-
-              toastr.success('SUCCESS.., Input data berhasil, Silahkan klik reload/refresh.');
-              location.reload();
-            },
-            error: function(error) {
-              console.log(error);
-              toastr.error('ERROR.., silahkan dicek kembali.');
-              $i = 0;
-            }
-          });
-        }
-      });
-      }else{
-        $('#EditForm').on('submit',function(e){
-        e.preventDefault();
-        if ( $i == 0 ) {
-          $i = 1;
-          var id = $cID;
-
-          $.ajax({
-            type : "PUT",
-            url : "Upd_Tug/"+id,
+            url : "Upd_Cat/"+id,
             data : $('#EditForm').serialize(),
             success : function (response) {
               console.log(response);
@@ -321,7 +209,6 @@
           });
         }
       });
-      }
     })
 
     // Modal Delete Record

@@ -9,6 +9,8 @@ use App\Models\DAFTAR_KELAS;
 use App\Models\Daftar_Guru;
 use App\Models\Daftar_Siswa;
 use App\Models\Daftar_Mapel;
+use App\Models\Daftar_TUGAS;
+use App\Models\Daftar_UH;
 use App\Models\Admin;
 use App\Models\kbm;
 
@@ -54,8 +56,12 @@ class AdminController extends Controller
 
     public function get_siswa($id)
     {
+        $data = Daftar_Siswa::where('ID_SISWA',$id)->get();
+        $kelas = $data[0]->ID_KELAS;
         Session::forget('id_get_siswa');
+        Session::forget('id_kelas');
         Session::put('id_get_siswa', $id);
+        Session::put('id_kelas', $kelas);
         return redirect()->route('/siswa');
     }
 
@@ -77,6 +83,19 @@ class AdminController extends Controller
                 'ID_KELAS' => $ids,
                 'password' => $request->NIS
             ]);
+            /* $kelas = Session::get('id_kelas');
+            $length = Daftar_TUGAS::where('ID_KELAS',$kelas)->count();
+            $tugas = Daftar_TUGAS::where('ID_KELAS',$kelas)->get();
+            $siswa = Daftar_Siswa::all()->count();
+            for ($i=0; $i < $length; $i++) {
+                DB::table('data_nilai_tugas')->insert([
+                    'ID_MAPEL' => $tugas[$i]->MENGAJAR,
+                    'ID_GURU' => $tugas[$i]->ID_GURU,
+                    'ID_KELAS' => $ids,
+                    'ID_TUGAS' => $tugas[$i]->ID_TUGAS,
+                    'ID_SISWA' => $siswa
+                ]);
+            } */
         }else {
             $lAda = Daftar_Guru::where('ID',$id)->count();
             if ($lAda == 1)

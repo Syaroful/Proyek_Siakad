@@ -90,4 +90,18 @@ class SiswaController extends Controller
                                     WHERE a.ID_KELAS = ?', [$id_kelas]);
         return view('siswa.rekap_nilai', compact('daftar_mapel', 'data_uh', 'data_uts', 'data_uas', 'data_tugas', 'total'));
     }
+
+    public function jadwal()
+    {
+        $id = Session::get('id');
+        $id_kelas = Session::get('id_kelas');
+        $data = DB::select('SELECT JADWAL FROM daftar_kelas WHERE ID_KELAS = ?', [$id_kelas]);
+        $jadwal = $data[0]->JADWAL;
+        $daftar_mapel = DB::select('SELECT b.ID_MAPEL, b.NAMA
+                                    FROM kbm a
+                                    LEFT JOIN daftar_mapel b ON a.ID_MAPEL = b.ID_MAPEL
+                                    LEFT JOIN guru c ON a.ID_GURU = c.ID
+                                    WHERE a.ID_KELAS = ?', [$id_kelas]);
+        return view('siswa.jadwal', compact('jadwal', 'daftar_mapel'));
+    }
 }

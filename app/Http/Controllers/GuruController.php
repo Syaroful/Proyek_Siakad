@@ -254,7 +254,7 @@ class GuruController extends Controller
             }
 
         }else {
-            DB::select("UPDATE data_nilai_uh SET NILAI = '$request->nilai' WHERE ID = '$id'");
+            DB::select("UPDATE data_nilai_tugas SET NILAI = '$request->nilai' WHERE ID = '$id'");
 
         }
     }

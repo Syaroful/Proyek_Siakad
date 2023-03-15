@@ -52,23 +52,6 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
 
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">0</span>
-        </a>
-      </li>
-
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">1</span>
-        </a>
-
-      </li>
-
       <li class="nav-item">
       <a class="nav-link" href="/logout" role="button">
       <td><span class="badge badge-danger"> <i class="fa fa-power-off"></i> LogOut </span></td>
@@ -161,10 +144,10 @@
 
   <!-- Main Footer -->
   <footer class="main-footer small-text">
-    <strong>Copyright &copy; 2021 <a href="#">Arriansoft</a>.</strong>
+    <strong>Copyright &copy; 2022 <a href="#">Kelompok 4</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
+      <b>Version</b> 1.0.0
     </div>
   </footer>
 </div>
